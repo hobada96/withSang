@@ -6,3 +6,4 @@
 문제_1
 다른 모든 스프링 파일이 안열림(직접 만든 spring 파일은 열린다.)
 -- 설정문제로 보인다.
+--- 해결완료!!! 문제는 import project로 하지 않아서 그렇다. import project로 build.gradle로 열게되면 실행이 
