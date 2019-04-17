@@ -1,21 +1,25 @@
 package ac.ks.web.domain;
-// Lombok
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+import javax.persistence.*;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.time.LocalDateTime;
-
+// Lombok
 @Getter
+@Setter
 @NoArgsConstructor
 
 // JPA
 @Entity
 @Table
 public class Board implements Serializable {
+
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)

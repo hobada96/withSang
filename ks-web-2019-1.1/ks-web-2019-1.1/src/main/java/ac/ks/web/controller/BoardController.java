@@ -28,8 +28,7 @@ public class BoardController {
     public List<String> getBoardTitleAll(){
         List<Board> boardList = boardRepository.findAll();
 
-        List<String> stringList = new ArrayList<>();
-
+//        List<String> stringList = new ArrayList<>();
         //for-loop -> 향상된 for-loop
 //        for(Board b : boardList){
 //            stringList.add(b.getTitle());
@@ -37,6 +36,6 @@ public class BoardController {
 
         //for-loop
         return boardList.stream().map(i->i.getContent())
-                                 .collect(Collectors.toList());
+                .collect(Collectors.toList());
     }
 }
