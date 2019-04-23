@@ -1,5 +1,6 @@
 package cs.kr.demo.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -15,7 +16,7 @@ public class Work {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idx;
 
     @Column
     private String company;
@@ -34,4 +35,14 @@ public class Work {
 
     @Column
     private String summry;
+
+    @Builder
+    public Work(String company, String position, String website, Date startDate, Date endDate, String summry){
+        this.company = company;
+        this.position = position;
+        this.website = website;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.summry = summry;
+    }
 }

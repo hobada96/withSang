@@ -25,7 +25,7 @@ public class BasicTest {
                 .email("홍길동@메일주소.도메인")
                 .phone("010-1234-5678")
                 .build();
-        saveBasic = basicRepository.save(basic) ;
+        saveBasic = basicRepository.save(basic);
     }
     @Test
     public void testRoad(){
