@@ -41,7 +41,6 @@ public class BoardController {
         board.setCreatedDate(LocalDateTime.now());
         board.setUpdatedDate(LocalDateTime.now());
         Board saveBoard = boardRepository.save(board);
-
         model.addAttribute("board",boardService.findBoardByIdx(saveBoard.getIdx()));
         return "item";
     }
@@ -50,5 +49,10 @@ public class BoardController {
     public String read(@PathVariable Long idx, Model model) {
         model.addAttribute("board", boardService.findBoardByIdx(idx));
         return "item";
+    }
+
+    @GetMapping("/hello")
+    public String from(){
+        return "hello";
     }
 }

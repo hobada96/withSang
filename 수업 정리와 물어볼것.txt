@@ -1,0 +1,29 @@
+빌드툴 : 컴파일, 의존성 라이브러리 다 어떻게 해준다.
+리엑트 : 웹핵 어려움.
+python : pip
+gradle : 빌드툴
+
+html => 캐싱됨 고친게 안넘어감
+메인 패키지 (root package)
+
+개발시 리로딩을 함. : devtool
+thermalleaf ???
+객체생성 도와주는 것 : lombok
+h2 -> database
+sqlite 
+mysql 
+jpa orm
+web mvc패턴을 쉽게 해주는것
+
+생성자, toString equal hash 반드시 작성해야함
+clone toString equal hash는 최상단 객체의 메서드
+clone은 오버라이딩 하지 말라
+나머지는 오버라이딩 관례상 강조시킴
+
+하라고 꼭 강요하지는 않지만 해야만 하는것
+getter
+setter
+
+빌드 패턴
+
+native???

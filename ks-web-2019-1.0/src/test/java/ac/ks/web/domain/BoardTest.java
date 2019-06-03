@@ -36,5 +36,6 @@ public class BoardTest {
     public void testRead(){
         Board findBoard = boardRepository.findById(savedBoard.getIdx()).orElse(null);
         assertThat(findBoard.getIdx()).isEqualTo(savedBoard.getIdx());
+        System.out.println(savedBoard.getIdx());
     }
 }

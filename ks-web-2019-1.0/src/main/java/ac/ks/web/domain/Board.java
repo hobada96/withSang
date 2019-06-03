@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table
 public class Board implements Serializable {
-
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)

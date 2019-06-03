@@ -1,3 +1,7 @@
 001 : class에 x표시가 쳐져 있었다. 왜인지는 모르겠지만 설정을 그렇게 해주었는데 무엇이 문제인지
 찾아보니, 이 class를 compile에서 제외시키겠다는 뜻이었다. 도데체 왜 이런짓을 했는지 모르겠지만
-exclude from compile 목록에서 제외시키니 잘 돌아간다.
+exclude from compile 목록에서 제외시키니 잘 돌아간다
+
+002: 늦게 발견한 오류, 포트중복 오류였다. 한 프로젝트를 돌리면서 다른 프로젝트를 돌리면 포트중복으로 오류가 나게된다. The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+Action: Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+이거 해결방법은 포트를 바꾸어 주면 된다. 이는 properties에 port값을 바꾸어 주면 된다.

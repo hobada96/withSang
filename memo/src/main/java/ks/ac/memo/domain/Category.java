@@ -13,7 +13,7 @@ public class Category {
     private String genre;
 
     @OneToMany(mappedBy = "category") //mappedBy를 붙지 않은 아이가 ownership을 가진다. => 이 경우 Book이 ownership을 가진다.
-    //개발자 관례 => OneToMany 쪽에 붙는다.
+    //    //개발자 관례 => OneToMany 쪽에 붙는다.
     //many에 붙어 다닌다. 이렇게 해서 안된다면, 반대로 걸어라.
     private List<Book> book = new ArrayList<>();
 

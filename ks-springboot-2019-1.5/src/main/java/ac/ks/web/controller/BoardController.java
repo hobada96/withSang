@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class BoardController {
+public class  BoardController {
 
     private BoardService boardService;
     private BoardRepository boardRepository;

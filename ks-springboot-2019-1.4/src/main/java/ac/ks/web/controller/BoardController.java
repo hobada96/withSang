@@ -27,7 +27,7 @@ public class BoardController {
 
     @GetMapping("/")
     public String list(@PageableDefault Pageable pageable, Model model) {
-        model.addAttribute("boardList", boardService.findBoardList(pageable));
+        model.addAttribute( "boardList", boardService.findBoardList(pageable));
         return "index";
     }
 
@@ -49,7 +49,7 @@ public class BoardController {
 
     @GetMapping("/new")
     public String form(Board board) {
-        return "new";
+        return "ne`w";
     }
 
 
