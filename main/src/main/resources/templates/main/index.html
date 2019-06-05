@@ -7,27 +7,27 @@
     <title>Index</title>
 </head>
 <body>
+<div th:replace="layout/header::header"></div>
 <div class="container">
-    <div class="page-header">
-        <h1>게시글 목록</h1>
-    </div>
-    <div class="pull-right" style="width:100px;margin:10px 0;">
-        <!--        <a href="#" th:href="@{/new}" class="btn btn-primary btn-block">등록</a>-->
+    <div style="margin: 20px">
+        <div class="page-header" style="float: left">
+            <h1>Basic 목록</h1>
+        </div>
+        <div class="pull-right" style="width:100px;margin:10px 0;float:right">
+            <a href="#" th:href="@{/basic/new}" class="btn btn-primary btn-block">등록</a>
+        </div>
     </div>
     <table class="table table-hover">
         <thead>
         <tr>
             <th>#</th>
-            <th>서비스 분류</th>
-            <th>제목</th>
-            <th>작성 날짜</th>
-            <th>수정 날짜</th>
+            <th>이름</th>
+            <th>직책</th>
+            <th>이메일</th>
+            <th>연락처</th>
         </tr>
         </thead>
         <tbody>
-        <div class="pull-right" style="width:100px;margin:10px 0;">
-            <a href="#" th:href="@{/new}" class="btn btn-primary btn-block">등록</a>
-        </div>
         <tr th:each="basic : ${basicList}">
             <td th:text="${basic.idx}"></td>
             <td>
@@ -42,33 +42,37 @@
 </div>
 
 <div class="container">
-    <div class="page-header">
-        <h1>게시글 목록</h1>
-    </div>
-    <div class="pull-right" style="width:100px;margin:10px 0;">
-        <!--        <a href="#" th:href="@{/new}" class="btn btn-primary btn-block">등록</a>-->
+    <div style="margin: 20px">
+        <div class="page-header" style="float: left">
+            <h1>Profile 목록</h1>
+        </div>
+        <div class="pull-right" style="width:100px;margin:10px 0; float:right ">
+            <a href="#" th:href="@{/profile/new}" class="btn btn-primary btn-block">등록</a>
+        </div>
     </div>
     <table class="table table-hover">
         <thead>
         <tr>
             <th>#</th>
-            <th>서비스 분류</th>
-            <th>제목</th>
-            <th>작성 날짜</th>
-            <th>수정 날짜</th>
+            <th>SNS</th>
+            <th>ID</th>
+            <th>링크</th>
+            <td>등록시간</td>
+            <td>수정시간</td>
         </tr>
         </thead>
         <tbody>
         <tr th:each=" profile : ${profileList}">
             <td th:text="${profile.idx}"></td>
-            <td>
-                <a th:herf="'/' + ${profile.idx}" th:text="${profile.url}"></a>
-            </td>
+            <td><a href="#" th:href="@{'/profile/' + ${profile.idx}}" th:text="${profile.network}"></a></td>
+            <td th:text="${profile.userName}"></td>
+            <td th:text="${profile.url}"></td>
+            <td th:text="${profile.createDat} ? ${#temporals.format(profile.createDat,'YYYY-MM-dd hh:mm:ss')} : ${profile.createDat}"></td>
+            <td th:text="${profile.updateDat} ? ${#temporals.format(profile.updateDat,'YYYY-MM-dd hh:mm:ss')} : ${profile.updateDat}"></td>
         </tr>
         </tbody>
     </table>
 </div>
-
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

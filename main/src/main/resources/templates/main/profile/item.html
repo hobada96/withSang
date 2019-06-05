@@ -9,32 +9,34 @@
 <body>
 <div th:replace="layout/header::header"></div>
 <div class="container">
-    <input id="basic_idx" type="hidden" th:value="${basic?.idx}"/>
+    <input id="profile_idx" type="hidden" th:value="${profile?.idx}"/>
+    <input id="profile_createDat" type="hidden" th:value="${profile?.createDat}"/>
     <table class="table" style="text-align: center">
         <tr>
+            <th style="padding:13px 0 0 15px;">네트워크</th>
+            <td><input id="profile_network" type="text" class="col-md-6 mb-3 form-control input-sm" th:value="${profile?.network}"/>
+            </td>
+        </tr>
+        <tr>
             <th style="padding:13px 0 0 15px;">이름</th>
-            <td><input id="basic_name" type="text" class="col-md-6 mb-3 form-control input-sm" th:value="${basic?.name}"/>
+            <td><input id="profile_userName" type="text" class="col-md-6 mb-3 form-control input-sm" th:value="${profile?.userName}"/>
             </td>
         </tr>
         <tr>
-            <th style="padding:13px 0 0 15px;">직책</th>
-            <td><input id="basic_label" type="text" class="col-md-6 mb-3 form-control input-sm" th:value="${basic?.label}"/>
+            <th style="padding:13px 0 0 15px;">url</th>
+            <td><input id="profile_url" type="text" class="col-md-6 mb-3 form-control input-sm" th:value="${profile?.url}"/>
             </td>
         </tr>
         <tr>
-            <th style="padding:13px 0 0 15px;">이메일</th>
-            <td><input id="basic_email" type="text" class="col-md-6 mb-3 form-control input-sm" th:value="${basic?.email}"/>
-            </td>
-        </tr>
-        <tr>
-            <th style="padding:13px 0 0 15px;">연락처</th>
-            <td><input id="basic_phone" type="text" class="col-md-6 mb-3 form-control input-sm" th:value="${basic?.phone}"/>
+            <th style="padding:13px 0 0 15px;">생성날짜</th>
+            <td><input type="text" class="col-md-6 mb-3 form-control input-sm" readonly="readonly"
+                       th:value="${profile?.createDat} ? ${#temporals.format(profile.createDat,'YYYY-MM-dd hh:mm:ss')} : ${profile?.createDat}"/>
             </td>
         </tr>
     </table>
     <div class="pull-right">
-        <button th:if="${basic.idx}" type="button" class="btn btn-primary" id="update"> 수정</button>
-        <button th:if="${basic.idx}" type="button" class="btn btn-primary" id="delete"> 삭제</button>
+        <button th:if="${profile.idx}" type="button" class="btn btn-primary" id="update"> 수정</button>
+        <button th:if="${profile.idx}" type="button" class="btn btn-primary" id="delete"> 삭제</button>
     </div>
 
 </div>
@@ -50,16 +52,16 @@
         crossorigin="anonymous"></script>
 <script src="/js/jquery.js"></script>
 
-<script th:if="${basic?.idx}">
+<script th:if="${profile?.idx}">
     $('#update').click(function () {
         var jsonData = JSON.stringify({
-             name: $('#basic_name').val(),
-             label: $('#basic_label').val(),
-             email: $('#basic_email').val(),
-             phone: $('#basic_phone').val(),
+             network: $('#profile_network').val(),
+             userName: $('#profile_userName').val(),
+             url: $('#profile_url').val(),
+             createDat: $('#profile_createDat').val(),
         });
         $.ajax({
-            url: "http://localhost:8080/basic/" + $('#basic_idx').val(),
+            url: "http://localhost:8080/profile/" + $('#profile_idx').val(),
             type: "PUT",
             data: jsonData,
             contentType: "application/json",
@@ -75,7 +77,7 @@
     });
     $('#delete').click(function () {
         $.ajax({
-            url: "http://localhost:8080/basic/" + $('#basic_idx').val(),
+            url: "http://localhost:8080/profile/" + $('#profile_idx').val(),
             type: "DELETE",
             success: function () {
                 alert('삭제 성공!');

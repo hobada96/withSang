@@ -33,6 +33,7 @@ public class MainApplication {
                     .userName("@hong" + index)
                     .url("https://twitter/@home"+index)
                     .createDat(LocalDateTime.of(2019,05,21,19,33,21))
+                    .updateDat(LocalDateTime.now())
                     .build());
 
         });

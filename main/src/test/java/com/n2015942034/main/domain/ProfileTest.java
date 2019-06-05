@@ -28,6 +28,7 @@ public class ProfileTest {
                 .userName("@hong")
                 .url("https:twitter/@home")
                 .createDat(LocalDateTime.of(2019,05,21,19,33,21))
+                .updateDat(LocalDateTime.of(2019,05,21,19,33,21))
                 .build());
     }
 

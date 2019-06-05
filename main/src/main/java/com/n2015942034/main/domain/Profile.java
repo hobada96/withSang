@@ -33,11 +33,26 @@ public class Profile implements Serializable {
     @Column
     private LocalDateTime createDat;
 
+    @Column
+    private LocalDateTime updateDat;
+
     @Builder
-    public Profile(String network, String userName, String url, LocalDateTime createDat) {
+    public Profile(String network, String userName, String url, LocalDateTime createDat, LocalDateTime updateDat) {
         this.network = network;
         this.userName = userName;
         this.url = url;
         this.createDat = createDat;
+        this.updateDat = updateDat;
+    }
+    public void setCreateDatNow(){
+        this.createDat = LocalDateTime.now();
+        this.updateDat = LocalDateTime.now();
+    }
+
+    public void update(Profile profile) {
+        this.network = profile.network;
+        this.userName = profile.userName;
+        this.url = profile.url;
+        this.updateDat = LocalDateTime.now();
     }
 }

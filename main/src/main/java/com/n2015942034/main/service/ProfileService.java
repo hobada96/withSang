@@ -21,4 +21,21 @@ public class ProfileService {
     public Profile findProfileByIdx(Long idx) {
         return profileRepository.findById(idx).orElse(new Profile());
     }
+
+    public Profile saveProfile(Profile saveProfile) {
+        profileRepository.save(saveProfile);
+        return saveProfile;
+    }
+
+    public void deleteProfile(long idx) {
+        profileRepository.deleteById(idx);
+    }
+
+    public Profile getOne(Long idx) {
+        return profileRepository.getOne(idx);
+    }
+
+    public Profile findBasicByIdx(Long idx) {
+        return profileRepository.findById(idx).orElse(new Profile());
+    }
 }
